@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boiling_flow"
+version = "0.1"
+description = "Phase screen generation for aero-optics using boiling flow"
+readme = "README.rst"
+license = { file = "LICENSE" }
+authors = [
+    { name = "boiling_flow development team", email = "jeffrey.utley@gmail.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent"
+]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "Pillow>=9.1",
+    "scipy",
+]
+
+[project.optional-dependencies]
+docs = [
+     "sphinx",
+     "sphinxcontrib-bibtex",
+     "sphinx-rtd-theme",
+     "ruamel.yaml",
+     "psutil"
+]
+
+[tool.setuptools.packages]
+find = {}
+
+[project.urls]
+source = "https://github.com/jeffreyutley/boiling_flow"
