@@ -11,7 +11,7 @@ phase_psd_block_sizes = {'F06': 596, 'F12': 994}
 flow_psd_block_sizes = {'F06': 298, 'F12': 496}
 
 for dataset in datasets:
-    file = np.load(f'./demo/data/TBL_data/TBL_data_set_{dataset}.npz')
+    file = np.load(f'./demo/data/TBL_data_set_{dataset}.npz')
     phase_screens = file['phase_screens']   # [radians]
     mask = file['mask']
     pixel_spacing = file['pixel_spacing']   # [m]

@@ -8,7 +8,7 @@ import numpy as np
 datasets = ['F06', 'F12']
 
 for dataset in datasets:
-    file = np.load(f'./demo/data/TBL_data/TBL_data_set_{dataset}.npz')
+    file = np.load(f'./demo/data/TBL_data_set_{dataset}.npz')
     phase_screens = file['phase_screens']   # [radians]
     mask = file['mask']
     pixel_spacing = file['pixel_spacing']   # [m]
