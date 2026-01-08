@@ -1,6 +1,6 @@
 .. docs-include-ref
 
-boiling_flow
+Boiling Flow
 ============
 
 This project includes a data-driven algorithm that generates synthetic time-series of images (of arbitrary duration)
@@ -77,3 +77,4 @@ file) with the following command:
 
 
         python demo/demo_file.py
+
