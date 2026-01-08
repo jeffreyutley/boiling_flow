@@ -63,11 +63,15 @@ generated_data = boiling_flow.generate_boiling_flow_data(num_time_steps=num_eval
                                                          alpha=alpha_est,
                                                          gamma0=gamma0_est)
 
-print(f"Simulated Data: Parameter Estimate Errors")
-print("==========================================")
-print("r0 Relative Error:            ", np.abs(r0_est - r0) / r0)
-print("Flow Velocity Relative Error: ", np.sqrt((v_x_est - v_x) ** 2 + v_y_est**2) / v_x)
-print("alpha Relative Error:         ", np.abs(alpha_est - alpha) / alpha, '\n')
+
+print("\n=================================================")
+print(f"        Simulated Data: Parameter Estimate Errors")
+print("=================================================")
+
+print(f"{'r0 Relative Error:':35s} {np.abs(r0_est - r0) / r0}")
+print(f"{'Flow Velocity Relative Error:':35s} "
+      f"{np.sqrt((v_x_est - v_x)**2 + (v_y_est - v_y)**2) / v_x}")
+print(f"{'alpha Relative Error:':35s} {np.abs(alpha_est - alpha) / alpha}\n")
 
 # Phase TPS, Flow TPS, RMS, and structure function of the evaluation data
 evaluation_data_opd = evaluation_data * wavelength / (2 * np.pi)  # convert to optical path difference (OPD) [m]
@@ -129,9 +133,13 @@ structure_function_error = demo_utils.compute_nrmse(ground_truth_data=measured_s
                                                     estimated_data=boiling_flow_structure_function_sqrt)
 opd_rms_error = np.abs(measured_opd_rms - boiling_flow_opd_rms) / measured_opd_rms
 
-print(f"Simulated Data: Error Metric Values")
-print("===========================================")
-print("Phase TPS Error:          ", phase_tps_error)
-print("Flow TPS Error:           ", flow_tps_error)
-print("Structure Function Error: ", structure_function_error)
-print("OPD_rms Error:            ", opd_rms_error, '\n')
+
+print("\n==============================================")
+print(f"        Simulated Data: Error Metric Values")
+print("==============================================")
+
+print(f"{'Phase TPS Error:':35s} {phase_tps_error}")
+print(f"{'Flow TPS Error:':35s} {flow_tps_error}")
+print(f"{'Structure Function Error:':35s} {structure_function_error}")
+print(f"{'OPD_rms Error:':35s} {opd_rms_error}\n")
+

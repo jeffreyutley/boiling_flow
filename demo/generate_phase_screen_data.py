@@ -1,6 +1,7 @@
 import boiling_flow
 import numpy as np
 import demo_utils
+import os
 
 # Approved for public release; distribution is unlimited. Public Affairs release approval #2025-5580.
 
@@ -11,21 +12,73 @@ phase_psd_block_sizes = {'F06': 596, 'F12': 994}
 flow_psd_block_sizes = {'F06': 298, 'F12': 496}
 
 for dataset in datasets:
-    file = np.load(f'./demo/data/TBL_data_set_{dataset}.npz')
-    phase_screens = file['phase_screens']   # [radians]
-    mask = file['mask']
-    pixel_spacing = file['pixel_spacing']   # [m]
-    sampling_frequency = file['sampling_frequency'] # [Hz]
-    wavelength = file['wavelength'] # [m]
+    print("Data Set %s" % dataset + '\n'
+          "============\n"
+          "============\n")
 
+    # Build filepath for the TBL data set .npz file
+    data_filepath = f'./demo/data/TBL_data/TBL_data_set_{dataset}.npz'
+
+    print(f"-- Loading TBL_data_set_{dataset}.npz ---")
+    print(f"Looking for file at: {os.path.abspath(data_filepath)}")
+
+    # Load .npz data file
+    try:
+        data_file = np.load(data_filepath)
+        print("File loaded successfully.")
+    except FileNotFoundError:
+        print("❌ ERROR: File not found!")
+        print("Check that the TBL_data folder was downloaded and placed correctly.")
+        raise
+    except Exception as e:
+        print("❌ ERROR while loading the .npz file:")
+        print(e)
+        raise
+
+    # Extract arrays
+    print("Extracting arrays from file...")
+
+    phase_screens = data_file['phase_screens']  # [radians]
+    mask = data_file['mask']
+    pixel_spacing = data_file['pixel_spacing']  # [m]
+    sampling_frequency = data_file['sampling_frequency'] # [Hz]
+    wavelength = data_file['wavelength'] # [m]
+
+    print(f"--- Done loading TBL_data_set_{dataset}.npz ---\n")
+
+    # Boiling flow parameters - estimated from measured data
+    #
+    # Build filepath for the parameter estimates .npy file
+    parameter_filepath = f'./demo/output/TBL_data_set_{dataset}_boiling_flow_parameter_estimates.npy'
+
+    print(f"-- Loading TBL_data_set_{dataset}_boiling_flow_parameter_estimates.npy ---")
+    print(f"Looking for file at: {os.path.abspath(parameter_filepath)}")
+
+    # Load .npy data file
+    try:
+        parameter_estimates = np.load(parameter_filepath)
+        print("File loaded successfully.")
+    except FileNotFoundError:
+        print("❌ ERROR: File not found!")
+        print(f"Check that the file demo/output/TBL_data_set_{dataset}_boiling_flow_parameter_estimates.npy exists.")
+        print("If the file does not exist, run the demo script demo/parameter_estimates_from_measured_data.py")
+        raise
+    except Exception as e:
+        print("❌ ERROR while loading the .npy file:")
+        print(e)
+        raise
+
+    # Extract parameters
+    print("Extracting parameters from file...")
+    L0, r0, gamma0, v_x, v_y, alpha = parameter_estimates
+
+    print(f"--- Done loading TBL_data_set_{dataset}_boiling_flow_parameter_estimates.npy ---")
+
+    # Extract the "outside mask" and training and testing data from the TBL data
     outside_mask = (np.average(1 - np.uint8(np.isnan(phase_screens)), axis=0) != 1)   # values to mask out
     num_training_time_steps = int(0.8 * phase_screens.shape[0])     # use 80% of the time series for training
     num_synthetic_time_steps = phase_screens.shape[0] - num_training_time_steps # compare with last 20% of time series
     measured_data_phase = phase_screens[num_training_time_steps:]
-
-    # Boiling flow parameters - estimated from measured data
-    parameter_estimates = np.load(f'./demo/output/TBL_data_set_{dataset}_boiling_flow_parameter_estimates.npy')
-    L0, r0, gamma0, v_x, v_y, alpha = parameter_estimates
 
     # Phase TPS, Flow TPS, RMS, and structure function of the measured data
     measured_data_opd = measured_data_phase * wavelength / (2 * np.pi)  # convert to optical path difference (OPD) [m]
@@ -117,9 +170,11 @@ for dataset in datasets:
                                                         estimated_data=boiling_flow_structure_function_sqrt)
     opd_rms_error = np.abs(measured_opd_rms - boiling_flow_opd_rms) / measured_opd_rms
 
-    print(f"Measured Data Set {dataset}: Scalar Metric Values")
-    print("===========================================")
-    print("Phase TPS Error:          ", phase_tps_error)
-    print("Flow TPS Error:           ", flow_tps_error)
-    print("Structure Function Error: ", structure_function_error)
-    print("OPD_rms Error:            ", opd_rms_error, '\n')
+    print("\n================================================")
+    print(f"     Measured Data Set {dataset}: Scalar Metric Values")
+    print("================================================")
+
+    print(f"{'Phase TPS Error:':35s} {phase_tps_error}")
+    print(f"{'Flow TPS Error:':35s} {flow_tps_error}")
+    print(f"{'Structure Function Error:':35s} {structure_function_error}")
+    print(f"{'OPD_rms Error:':35s} {opd_rms_error}\n")

@@ -26,10 +26,3 @@ Indices and tables
    utils
    demo_utils
    references
-
-.. toctree::
-   :hidden:
-   :maxdepth: 4
-   :caption: Developer Guide
-
-   docs
