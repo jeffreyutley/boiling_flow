@@ -66,9 +66,14 @@ Installing
 Running Demo(s)
 ---------------
 
+To access the data files used in the demo files ``parameter_estimates_from_measured_data.py`` and ``generate_phase_screen_data.py``, 
+visit the `Bouman data repository <https://www.datadepot.rcac.purdue.edu/bouman/>` and download the .zip file ``TBL_data.zip``. 
+Unzip the file and place the data files ``TBL_data_set_F06.npz`` and ``TBL_data_set_F12.npz`` inside the folder ``demo\data\``.
+
 After downloading the data files, run a demo script from the parent directory (the boiling_flow folder containing this
 file) with the following command:
 
     .. code-block::
+
 
         python demo/demo_file.py
