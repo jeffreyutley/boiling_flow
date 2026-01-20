@@ -101,7 +101,7 @@ command:
         python demo/demo_file.py
 
 The script ``generate_phase_screen_data.py`` loads an .npy file that is saved by
-``parameter_estimates_from_measured_data.py``, so the former script must be run before the latter.
+``parameter_estimates_from_measured_data.py``, so the latter script must be run before the former.
 
 
 Disclaimer
