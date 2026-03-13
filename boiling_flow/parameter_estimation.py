@@ -142,6 +142,10 @@ def estimate_r0(input_data, delta, L0, frequency_mask=None):
         frequency_mask[N // 2, :] = False
         frequency_mask[:, N // 2] = False
 
+    # Apply frequency mask to frequency bins and spatial PSD values
+    fx, fy = fx[frequency_mask], fy[frequency_mask]
+    spatial_psd_estimate = spatial_psd_estimate[frequency_mask]
+
     # Fit r0 to the spatial PSD of the measured data
     r0_est = fit_r0_from_spatial_psd(spatial_psd_estimate, fx, fy, L0)
 
