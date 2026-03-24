@@ -4,7 +4,7 @@ import time
 from datetime import timedelta
 import numbers
 
-# Approved for public release; distribution is unlimited. Public Affairs release approval #2025-5580.
+# Approved for public release; distribution is unlimited. Public Affairs release approval # AFRL-2025-5580.
 
 def generate_random_phase_screen(N, delta, L0, r0, gamma0=1.0):
     """Generate a random phase screen from the Von Karman distribution. Adapted from :cite:`Schmidt`.

@@ -1,6 +1,6 @@
 import numpy as np
 
-# Approved for public release; distribution is unlimited. Public Affairs release approval #2025-5580.
+# Approved for public release; distribution is unlimited. Public Affairs release approval # AFRL-2025-5580.
 
 def ft2(data, scale=1.0):
     """Use FFT-shifts to take the 2-D FFT of data. Adapted from :cite:`Schmidt`.

@@ -6,7 +6,7 @@ import time
 from datetime import timedelta
 import numbers
 
-# Approved for public release; distribution is unlimited. Public Affairs release approval #2025-5580.
+# Approved for public release; distribution is unlimited. Public Affairs release approval # AFRL-2025-5580.
 
 def estimate_outer_scale(aperture_shape, delta):
     """Set L0 to the length of the aperture [m].

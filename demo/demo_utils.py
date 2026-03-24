@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation
 import boiling_flow
 
-# Approved for public release; distribution is unlimited. Public Affairs release approval #2025-5580.
+# Approved for public release; distribution is unlimited. Public Affairs release approval # AFRL-2025-5580.
 
 def slopes_psd(data_values, locations=None, axis=2, time_block_size=1024, sampling_frequency=None, remove_mean=True,
                use_overlapping_blocks=True):

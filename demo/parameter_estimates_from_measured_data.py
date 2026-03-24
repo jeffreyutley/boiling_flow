@@ -2,7 +2,7 @@ import boiling_flow
 import numpy as np
 import os
 
-# Approved for public release; distribution is unlimited. Public Affairs release approval #2025-5580.
+# Approved for public release; distribution is unlimited. Public Affairs release approval # AFRL-2025-5580.
 
 """Estimate the boiling flow parameters from TBL data sets F06 and F12"""
 

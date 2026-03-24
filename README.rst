@@ -107,4 +107,4 @@ The script ``generate_phase_screen_data.py`` loads an .npy file that is saved by
 Disclaimer
 ----------
 
-Approved for public release; distribution is unlimited. Public Affairs release approval #2025-5580.
+Approved for public release; distribution is unlimited. Public Affairs release approval # AFRL-2025-5580.

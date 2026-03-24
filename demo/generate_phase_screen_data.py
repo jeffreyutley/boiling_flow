@@ -3,7 +3,7 @@ import numpy as np
 import demo_utils
 import os
 
-# Approved for public release; distribution is unlimited. Public Affairs release approval #2025-5580.
+# Approved for public release; distribution is unlimited. Public Affairs release approval # AFRL-2025-5580.
 
 """Generate a time-series phase screens using boiling flow and the parameter estimates from measured data"""
 
