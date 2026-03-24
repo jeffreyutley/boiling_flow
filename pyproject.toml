@@ -9,7 +9,7 @@ description = "Phase screen generation for aero-optics using boiling flow"
 readme = "README.rst"
 license = { file = "LICENSE" }
 authors = [
-    { name = "boiling_flow development team", email = "jeffrey.utley@gmail.com" }
+    { name = "Boiling Flow development team", email = "jeffrey.utley@gmail.com" }
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -29,9 +29,9 @@ dependencies = [
 docs = [
      "sphinx",
      "sphinxcontrib-bibtex",
-     "sphinx-rtd-theme",
-     "ruamel.yaml",
-     "psutil"
+     "sphinx-book-theme>=1.0.1",
+     "sphinx-design",
+     "sphinx-copybutton"
 ]
 
 [tool.setuptools.packages]

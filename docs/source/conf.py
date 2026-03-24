@@ -12,9 +12,17 @@
 #
 import os
 import sys
-import sphinx_rtd_theme
 
 sys.path.insert(0, os.path.abspath('../..'))
+
+# -- Project information -----------------------------------------------------
+
+project = 'boiling_flow'
+copyright = '2024, Boiling Flow Development Team'
+author = 'Boiling Flow Development Team'
+
+# The full version, including alpha/beta/rc tags
+release = '0.1'
 
 
 def skip(app, what, name, obj, would_skip, options):
@@ -27,16 +35,6 @@ def setup(app):
     app.connect("autodoc-skip-member", skip)
 
 
-# -- Project information -----------------------------------------------------
-
-project = 'boiling_flow'
-copyright = '2025, boiling_flow Development Team'
-author = 'boiling_flow Development Team'
-
-# The full version, including alpha/beta/rc tags
-release = '0.1'
-
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -44,21 +42,26 @@ release = '0.1'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinxcontrib.bibtex',
-    'sphinx.ext.viewcode'
+    'sphinx.ext.viewcode',
+    'sphinx_design',
+    'sphinx_copybutton'
 ]
 
+
+# Exclude __init__ method from documentation
+autodoc_default_options = {
+    'exclude-members': '__init__'
+}
+
 bibtex_bibfiles = ['refs.bib']
-bibtex_citation_scope = 'document'
 
-autosummary_generate = True
-
-# Add any paths that contain templates here, relative to this directory.
-exclude_patterns = ['../_build', '**.ipynb_checkpoints']
+# autosummary_generate = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['../_templates']
@@ -87,7 +90,6 @@ rst_epilog = """
    </p>
 """
 
-
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
@@ -104,25 +106,41 @@ napoleon_use_ivar = False
 napoleon_use_param = False
 napoleon_use_rtype = False
 #napoleon_custom_sections = [('Returns', 'params_style')]
-
+autosummary_generate = True
+napolean_use_rtype = False
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'bizstyle'
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_book_theme'
 
+# Theme options are theme-specific and customize the look and feel of a theme
+# further.  For a list of options available for each theme, see the
+# documentation.
 html_theme_options = {
-    'style_nav_header_background': '#4f8fb8ff',
-    'collapse_navigation': False,
+    'show_toc_level': 2,
+    'repository_url': 'https://github.com/jeffreyutley/boiling_flow',
+    'use_repository_button': True,     # add a "link to repository" button
+    'navigation_with_keys': False,
+    'footer_start': ['copyright', 'sphinx-version'],
+    'footer_end': ['theme-version'],
+    # 'extra_footer': '<p>This is a custom footnote appended to every page footer.</p>'
 }
 
+main_doc = 'index'
 
-# Output file base name for HTML help builder.
-htmlhelp_basename = project + 'doc'
+# html_logo = "figs/logo.svg"
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-#html_static_path = ['_static']
-html_static_path = []
+# html_static_path = ["_static"]
+# html_static_path = []
+
+html_css_files = [
+    'custom_styles.css',
+]
+
+# Output file base name for HTML help builder.
+htmlhelp_basename = project + 'doc'

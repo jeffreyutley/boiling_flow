@@ -10,9 +10,9 @@ dependencies:
   - scipy
   - sphinx
   - sphinxcontrib-bibtex
-  - sphinx-book-theme
-  - ruamel.yaml
-  - psutil
+  - sphinx-book-theme>=1.0.1
+  - sphinx-design
+  - sphinx-copybutton
   - pip  # Add any additional packages here and in pyproject.toml
   - pip:
       - -e .
