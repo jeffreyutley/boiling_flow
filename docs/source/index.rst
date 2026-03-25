@@ -1,20 +1,10 @@
-.. boiling_flow documentation master file, created by
-   sphinx-quickstart on Fri Jun 25 14:24:26 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Boiling Flow
+============
 
-.. include:: ../README.rst
+**Boiling Flow** is a data-driven algorithm that generates synthetic time-series of images (of arbitrary duration) by
+estimating statistical parameters from an input time-series of images.
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-
+For more information about the algorithm, see :cite:`UtleyBoiling, UtleyBoiling2`.
 
 .. toctree::
    :hidden:
