@@ -4,7 +4,8 @@ Boiling Flow
 ============
 
 This project includes a data-driven algorithm that generates synthetic time-series of images (of arbitrary duration)
-by estimating statistical parameters from an input time-series of images.
+by estimating statistical parameters from an input time-series of images. Full documentation is available at
+https://boiling-flow.readthedocs.io .
 
 Installing
 ----------
