@@ -30,37 +30,17 @@ Installing
 
     b. Option 2: Manual install
 
-        1. *Create conda environment:*
+        Create a conda environment ``boiling_flow`` using the ``environment.yml`` file.
 
-            Create a new conda environment named ``boiling_flow`` using the following commands:
+        .. code-block::
 
-            .. code-block::
+            conda env create -f environment.yml
 
-                conda create --name boiling_flow python=3.11
-                conda activate boiling_flow
-                pip install -r requirements.txt
+        Anytime you want to use this package, this ``boiling_flow`` environment should be activated with the following:
 
-            Anytime you want to use this package, this ``boiling_flow`` environment should be activated with the
-            following:
+        .. code-block::
 
-            .. code-block::
-
-                conda activate boiling_flow
-
-
-        2. *Install boiling_flow package:*
-
-            Navigate to the main directory ``boiling_flow/`` and run the following:
-
-            .. code-block::
-
-                pip install .
-
-            To allow editing of the package source while using the package, use
-
-            .. code-block::
-
-                pip install -e .
+            conda activate boiling_flow
 
 
 Running Demo(s)
