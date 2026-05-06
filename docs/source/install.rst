@@ -9,7 +9,7 @@ The ``Boiling Flow`` package is available through PyPI or from source through Gi
 
 In order to install from PyPI, use the following command::
 
-    pip install boiling_flow
+    pip install boiling-flow
 
 
 **Downloading and installing from source**
