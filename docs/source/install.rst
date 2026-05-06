@@ -2,7 +2,14 @@
 Installation
 ============
 
-The ``Boiling Flow`` package currently is only available to download and install from source through GitHub.
+The ``Boiling Flow`` package is available through PyPI or from source through GitHub.
+
+
+**Install from PyPI**
+
+In order to install from PyPI, use the following command::
+
+    pip install boiling_flow
 
 
 **Downloading and installing from source**
