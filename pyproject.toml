@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "boiling_flow"
-version = "0.1.1"
+version = "0.1.2"
 description = "Phase screen generation for aero-optics using boiling flow"
 readme = "README.rst"
 license = { file = "LICENSE" }
