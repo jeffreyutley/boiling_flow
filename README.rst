@@ -14,7 +14,7 @@ Use the following command:
 
     .. code-block::
 
-        pip install boiling_flow
+        pip install boiling-flow
 
 
 Installing from Source
