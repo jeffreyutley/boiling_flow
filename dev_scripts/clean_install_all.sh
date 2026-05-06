@@ -80,6 +80,7 @@ else
 fi
 
 pip install "..[docs]"
+pip install "..[demo]"
 source build_docs.sh
 
 red=`tput setaf 1`
